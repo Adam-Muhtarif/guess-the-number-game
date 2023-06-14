@@ -15,12 +15,21 @@ function startGame() {
 function wrongGuessing(text) {
   score.textContent--;
   message.textContent = text;
+  if (score.textContent == 0) {
+    document.body.style.backgroundColor = "red";
+    checkBtn.classList.add("block");
+    checkBtn.classList.add("block");
+  }
 }
 
 startGame();
 checkBtn.addEventListener("click", () => {
   // Check If Is It A Valid Number
-  if (guess.value && parseInt(guess.value) <= 20) {
+  if (
+    guess.value &&
+    parseInt(guess.value) <= 20 &&
+    parseInt(guess.value) >= 1
+  ) {
     // If Guess Number Higher Or Lower Then Random Number
     parseInt(guess.value) < randomNumber
       ? wrongGuessing("Too Low ⬇️")
