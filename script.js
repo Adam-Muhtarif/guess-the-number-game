@@ -15,10 +15,12 @@ function startGame() {
 function wrongGuessing(text) {
   score.textContent--;
   message.textContent = text;
+
+  // Game Over
   if (score.textContent == 0) {
     document.body.style.backgroundColor = "red";
     checkBtn.classList.add("block");
-    checkBtn.classList.add("block");
+    message.textContent = "Game Over";
   }
 }
 
